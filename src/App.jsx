@@ -20,17 +20,24 @@ export default function App() {
     y: Math.random() * 100 + "vh",
   }));
 
-  // Click background → breeze start
+  // Desktop click → clouds breeze
   const handleContainerClick = () => setBreeze(true);
 
-  // Click / tap moon → gift box
+  // Mobile tap → clouds breeze
+  const handleContainerTouch = () => setBreeze(true);
+
+  // Moon click/tap → gift box
   const handleMoonClick = (e) => {
     e.stopPropagation();
     setShowGift(true);
   };
 
   return (
-    <div className="container" onClick={handleContainerClick}>
+    <div
+      className="container"
+      onClick={handleContainerClick}       // desktop
+      onTouchStart={handleContainerTouch} // mobile
+    >
       {/* Stars */}
       {stars.map((star) => (
         <div
@@ -45,22 +52,27 @@ export default function App() {
         />
       ))}
 
-      {/* Moon behind clouds */}
-      <div className="moon-container">
-       <div
-  className="moon"
-  onClick={(e) => {
-    e.stopPropagation();  // prevent container click
-    setShowGift(true);
-  }}
-  onTouchStart={(e) => {
-    e.stopPropagation();  // prevent container click
-    setShowGift(true);
-  }}
->
-  🌙
-</div>
+      {/* Name + Instructions */}
+      <div className="header">
+        <div className="name">BAZELA B23...6020</div>
+        <div className="instructions">
+          {!breeze ? (
+            <span>Tap on clouds to remove them</span>
+          ) : !showGift ? (
+            <span>Tap on moon to see message</span>
+          ) : null}
+        </div>
       </div>
+
+      {/* Moon */}
+    <div
+  className="moon-container"
+  onClick={handleMoonClick}
+  onTouchStart={handleMoonClick}
+  style={{ padding: "80px" }}
+>
+  <div className="moon">🌙</div>
+</div>
 
       {/* Clouds */}
       <div className={`cloud cloud-left ${breeze ? "cloud-left-breeze" : ""}`}>

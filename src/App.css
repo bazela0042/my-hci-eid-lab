@@ -7,6 +7,30 @@
   cursor: pointer;
 }
 
+/* Header with name + instructions */
+.header {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+}
+
+.name {
+  color: #ffd700;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 0 5px #fff;
+  margin-bottom: 5px;
+}
+
+.instructions {
+  color: white;
+  font-size: 20px;
+  text-shadow: 0 0 5px #000;
+  pointer-events: none; /* text pe click ignore ho */
+}
+
 /* Stars */
 .star {
   position: absolute;
@@ -83,7 +107,6 @@
 
 /* Gift box */
 .gift-box {
-   
   position: absolute;
   top: 80%;
   left: 50%;
@@ -91,7 +114,7 @@
   font-size: 60px;
   text-align: center;
   z-index: 20;
-   text-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ffd700;
 }
 
 .gift-message {
