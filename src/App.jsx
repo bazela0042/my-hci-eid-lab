@@ -20,22 +20,19 @@ export default function App() {
     y: Math.random() * 100 + "vh",
   }));
 
-  // Tap anywhere → clouds move
-  const handleContainerPointer = () => {
-    if (!breeze) setBreeze(true);
+  // Clouds tap → breeze
+  const handleCloudTap = () => {
+    setBreeze(true);
   };
 
-  // Tap moon → show gift (ONLY after clouds gone)
-  const handleMoonPointer = (e) => {
-    e.stopPropagation();
-    if (breeze) {
-      setShowGift(true);
-    }
+  // Moon click → gift box
+  const handleMoonTap = (e) => {
+    e.stopPropagation(); // stop clouds click
+    if (breeze) setShowGift(true);
   };
 
   return (
-    <div className="container" onPointerDown={handleContainerPointer}>
-      
+    <div className="container">
       {/* Stars */}
       {stars.map((star) => (
         <div
@@ -63,19 +60,21 @@ export default function App() {
       </div>
 
       {/* Moon */}
-      <div
-        className="moon-container"
-        onPointerDown={handleMoonPointer}
-      >
+      <div className="moon-container" onPointerDown={handleMoonTap}>
         <div className="moon">🌙</div>
       </div>
 
-      {/* Clouds (ON TOP of moon but not blocking clicks) */}
-      <div className={`cloud cloud-left ${breeze ? "cloud-left-breeze" : ""}`}>
+      {/* Clouds */}
+      <div
+        className={`cloud cloud-left ${breeze ? "cloud-left-breeze" : ""}`}
+        onPointerDown={handleCloudTap} // tap cloud → breeze
+      >
         ☁️☁️☁️
       </div>
-
-      <div className={`cloud cloud-right ${breeze ? "cloud-right-breeze" : ""}`}>
+      <div
+        className={`cloud cloud-right ${breeze ? "cloud-right-breeze" : ""}`}
+        onPointerDown={handleCloudTap} // tap cloud → breeze
+      >
         ☁️☁️☁️
       </div>
 

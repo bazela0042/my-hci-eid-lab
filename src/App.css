@@ -72,7 +72,9 @@
     0 0 50px #fff;
   opacity: 0.85;
   transition: all 3s ease;
-  pointer-events: none; /* ⭐ clicks pass through to moon */
+  .cloud {
+  pointer-events: auto; /* ⭐ allow cloud tap */
+} /* ⭐ clicks pass through to moon */
 }
 
 .cloud-left {
