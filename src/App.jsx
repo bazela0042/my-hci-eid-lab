@@ -20,20 +20,22 @@ export default function App() {
     y: Math.random() * 100 + "vh",
   }));
 
-  // Container pointer down → clouds breeze
-  const handleContainerPointer = () => setBreeze(true);
+  // Tap anywhere → clouds move
+  const handleContainerPointer = () => {
+    if (!breeze) setBreeze(true);
+  };
 
-  // Moon click/tap → gift box
+  // Tap moon → show gift (ONLY after clouds gone)
   const handleMoonPointer = (e) => {
-    e.stopPropagation(); // stop container from catching this tap
-    setShowGift(true);
+    e.stopPropagation();
+    if (breeze) {
+      setShowGift(true);
+    }
   };
 
   return (
-    <div
-      className="container"
-      onPointerDown={handleContainerPointer} // works on desktop & mobile
-    >
+    <div className="container" onPointerDown={handleContainerPointer}>
+      
       {/* Stars */}
       {stars.map((star) => (
         <div
@@ -48,7 +50,7 @@ export default function App() {
         />
       ))}
 
-      {/* Name + Instructions */}
+      {/* Header */}
       <div className="header">
         <div className="name">BAZELA B23...6020</div>
         <div className="instructions">
@@ -63,16 +65,16 @@ export default function App() {
       {/* Moon */}
       <div
         className="moon-container"
-        onPointerDown={handleMoonPointer} // stopPropagation ensures gift appears
-        style={{ padding: "80px" }}
+        onPointerDown={handleMoonPointer}
       >
         <div className="moon">🌙</div>
       </div>
 
-      {/* Clouds */}
+      {/* Clouds (ON TOP of moon but not blocking clicks) */}
       <div className={`cloud cloud-left ${breeze ? "cloud-left-breeze" : ""}`}>
         ☁️☁️☁️
       </div>
+
       <div className={`cloud cloud-right ${breeze ? "cloud-right-breeze" : ""}`}>
         ☁️☁️☁️
       </div>
@@ -89,7 +91,7 @@ export default function App() {
           </div>
         ))}
 
-      {/* Gift box */}
+      {/* Gift */}
       {showGift && (
         <div className="gift-box">
           🎁

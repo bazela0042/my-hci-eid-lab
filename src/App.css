@@ -38,13 +38,14 @@
   border-radius: 50%;
 }
 
-/* Moon container behind clouds */
+/* Moon container behind clouds but clickable */
 .moon-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 0; /* behind clouds */
+  pointer-events: auto; /* ⭐ allow clicks */
 }
 
 .moon {
@@ -58,9 +59,8 @@
   cursor: pointer;
 }
 
-/* Clouds */
+/* Clouds (visually above moon, clicks ignored) */
 .cloud {
-   
   position: absolute;
   font-size: 300px;
   z-index: 5; /* above moon */
@@ -72,6 +72,7 @@
     0 0 50px #fff;
   opacity: 0.85;
   transition: all 3s ease;
+  pointer-events: none; /* ⭐ clicks pass through to moon */
 }
 
 .cloud-left {
@@ -79,6 +80,7 @@
   left: 30%;
   transform: scaleX(-1);
 }
+
 .cloud-right {
   top: 40%;
   right: 20%;
@@ -88,6 +90,7 @@
   left: -50%;
   opacity: 0;
 }
+
 .cloud-right-breeze {
   right: -50%;
   opacity: 0;
