@@ -20,23 +20,19 @@ export default function App() {
     y: Math.random() * 100 + "vh",
   }));
 
-  // Desktop click → clouds breeze
-  const handleContainerClick = () => setBreeze(true);
-
-  // Mobile tap → clouds breeze
-  const handleContainerTouch = () => setBreeze(true);
+  // Container pointer down → clouds breeze
+  const handleContainerPointer = () => setBreeze(true);
 
   // Moon click/tap → gift box
-  const handleMoonClick = (e) => {
-    e.stopPropagation();
+  const handleMoonPointer = (e) => {
+    e.stopPropagation(); // stop container from catching this tap
     setShowGift(true);
   };
 
   return (
     <div
       className="container"
-      onClick={handleContainerClick}       // desktop
-      onTouchStart={handleContainerTouch} // mobile
+      onPointerDown={handleContainerPointer} // works on desktop & mobile
     >
       {/* Stars */}
       {stars.map((star) => (
@@ -65,14 +61,13 @@ export default function App() {
       </div>
 
       {/* Moon */}
-    <div
-  className="moon-container"
-  onClick={handleMoonClick}
-  onTouchStart={handleMoonClick}
-  style={{ padding: "80px" }}
->
-  <div className="moon">🌙</div>
-</div>
+      <div
+        className="moon-container"
+        onPointerDown={handleMoonPointer} // stopPropagation ensures gift appears
+        style={{ padding: "80px" }}
+      >
+        <div className="moon">🌙</div>
+      </div>
 
       {/* Clouds */}
       <div className={`cloud cloud-left ${breeze ? "cloud-left-breeze" : ""}`}>

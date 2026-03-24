@@ -60,6 +60,7 @@
 
 /* Clouds */
 .cloud {
+   
   position: absolute;
   font-size: 300px;
   z-index: 5; /* above moon */
