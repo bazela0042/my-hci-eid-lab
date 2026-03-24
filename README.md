@@ -1,16 +1,32 @@
-# React + Vite
+# 🌙 Eid Interactive Animation - React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Author:** Bazela  
+**Seat No:** B23110006020  
+**Section:** B, 3rd Year, 5th Semester  
+**University:** University of Karachi, UBIT  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is an **interactive Eid Mubarak animation** built with React.  
+It features stars, clouds, moon, sparkles, and a gift box in a dynamic night sky scene.  
 
-## React Compiler
+Users can **tap/click on the clouds to remove them**, and once the moon is fully visible, they can **tap/click the moon to reveal a gift box and "Eid Mubarak!" message**.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎨 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Starry Night Sky: Randomly positioned stars create a beautiful night effect.  
+- Cloud Animation: Tap on clouds → clouds move away smoothly (breeze effect).  
+- Moon Reveal: Moon is initially hidden behind clouds; becomes clickable after clouds move.  
+- Sparkles: Animated sparkles appear after clouds are removed.  
+- Gift Box: Tap the moon → gift box with "Eid Mubarak!" message appears.  
+- Mobile + Desktop Friendly: Works seamlessly on mobile taps and desktop clicks.  
+- Dynamic z-index Handling: Moon rises above clouds after breeze for proper interaction.
+
+**live link**
+https://my-hci-eid-lab.vercel.app/
+
+---
+
+## 📂 Project Structure
