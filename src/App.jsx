@@ -74,7 +74,7 @@ export default function App() {
       </div>
 
       {/* Moon */}
-      <div className="moon-container" onPointerDown={handleMoonTap}>
+      <div className={`moon-container ${breeze ? "breeze" : ""}`} onPointerDown={handleMoonTap}>
         <div className="moon">🌙</div>
       </div>
 
