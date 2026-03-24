@@ -29,4 +29,3 @@ https://my-hci-eid-lab.vercel.app/
 
 ---
 
-## 📂 Project Structure
