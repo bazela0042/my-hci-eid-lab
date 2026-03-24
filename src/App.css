@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-/* Header with name + instructions */
+/* Header */
 .header {
   position: absolute;
   top: 10px;
@@ -28,7 +28,7 @@
   color: white;
   font-size: 20px;
   text-shadow: 0 0 5px #000;
-  pointer-events: none; /* text pe click ignore ho */
+  pointer-events: none;
 }
 
 /* Stars */
@@ -38,32 +38,11 @@
   border-radius: 50%;
 }
 
-/* Moon container behind clouds but clickable */
-.moon-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0; /* behind clouds */
-  pointer-events: auto; /* ⭐ allow clicks */
-}
-
-.moon {
-  font-size: 100px;
-  text-shadow:
-    0 0 10px #fff,
-    0 0 20px #fff,
-    0 0 30px #ffd700,
-    0 0 40px #ffd700,
-    0 0 50px #ff8c00;
-  cursor: pointer;
-}
-
-/* Clouds (visually above moon, clicks ignored) */
+/* Clouds */
 .cloud {
   position: absolute;
   font-size: 300px;
-  z-index: 5; /* above moon */
+  z-index: 5; /* initially above moon */
   user-select: none;
   text-shadow:
     0 0 15px #fff,
@@ -72,9 +51,7 @@
     0 0 50px #fff;
   opacity: 0.85;
   transition: all 3s ease;
-  .cloud {
-  pointer-events: auto; /* ⭐ allow cloud tap */
-} /* ⭐ clicks pass through to moon */
+  pointer-events: auto; /* allow cloud tap */
 }
 
 .cloud-left {
@@ -91,11 +68,33 @@
 .cloud-left-breeze {
   left: -50%;
   opacity: 0;
+  z-index: 1; /* behind moon after breeze */
 }
 
 .cloud-right-breeze {
   right: -50%;
   opacity: 0;
+  z-index: 1; /* behind moon after breeze */
+}
+
+/* Moon */
+.moon-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* initially behind clouds */
+}
+
+.moon {
+  font-size: 100px;
+  text-shadow:
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #ffd700,
+    0 0 40px #ffd700,
+    0 0 50px #ff8c00;
+  cursor: pointer;
 }
 
 /* Sparkles */
@@ -111,7 +110,7 @@
   100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Gift box */
+/* Gift */
 .gift-box {
   position: absolute;
   top: 80%;
