@@ -20,7 +20,7 @@ export default function App() {
 
   // Moon tap → gift
   const handleMoonTap = (e) => {
-    e.stopPropagation();
+ 
     if (breeze) setShowGift(true);
   };
 
