@@ -13,13 +13,6 @@ export default function App() {
     size: Math.random() * 2 + 1 + "px",
   }));
 
-  // Sparkles
-  const sparkles = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    x: Math.random() * 100 + "vw",
-    y: Math.random() * 100 + "vh",
-  }));
-
   // Clouds tap → breeze
   const handleCloudTap = () => {
     setBreeze(true);
@@ -74,21 +67,12 @@ export default function App() {
       </div>
 
       {/* Moon */}
-      <div className={`moon-container ${breeze ? "breeze" : ""}`} onPointerDown={handleMoonTap}>
+      <div
+        className={`moon-container ${breeze ? "breeze" : ""}`}
+        onPointerDown={handleMoonTap}
+      >
         <div className="moon">🌙</div>
       </div>
-
-      {/* Sparkles */}
-      {breeze &&
-        sparkles.map((sp) => (
-          <div
-            key={sp.id}
-            className="sparkle"
-            style={{ left: sp.x, top: sp.y }}
-          >
-            ✨
-          </div>
-        ))}
 
       {/* Gift */}
       {showGift && (
