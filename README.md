@@ -19,9 +19,7 @@ Users can **tap/click on the clouds to remove them**, and once the moon is fully
 - Starry Night Sky: Randomly positioned stars create a beautiful night effect.  
 - Cloud Animation: Tap on clouds → clouds move away smoothly (breeze effect).  
 - Moon Reveal: Moon is initially hidden behind clouds; becomes clickable after clouds move.  
-- Sparkles: Animated sparkles appear after clouds are removed.  
 - Gift Box: Tap the moon → gift box with "Eid Mubarak!" message appears.  
-- Mobile + Desktop Friendly: Works seamlessly on mobile taps and desktop clicks.  
 - Dynamic z-index Handling: Moon rises above clouds after breeze for proper interaction.
 
 **live link**
